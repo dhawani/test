@@ -2,7 +2,7 @@ name: PR Vishal
 
 on: 
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, synchronize, reopened, edited]
 
 jobs:
   pr_title:
@@ -10,11 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run a one-line script
+    - name: Check PR Title
       env:
         PR_TITLE: ${{ github.event.pull_request.title }}
       run: "[[ $PR_TITLE =~ FRESHID[-_]\\d* ]]"
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
