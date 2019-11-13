@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Run a one-line script
       env:
-        PR_TITLE: ${{ toJson(github) }}
+        PR_TITLE: ${{ github.event.pull_request.title }}
       run: echo "$PR_TITLE"
     - name: Run a multi-line script
       run: |
