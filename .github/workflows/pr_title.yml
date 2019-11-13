@@ -1,0 +1,20 @@
+name: PR Vishal
+
+on: 
+  pull_request:
+    types: [opened, reopened, edited]
+
+jobs:
+  pr_title:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run a one-line script
+      env:
+        PR_TITLE: ${{ github.event.pull_request.title }}
+      run: "[[ $PR_TITLE =~ FRESHID[-_]\\d* ]]"
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
