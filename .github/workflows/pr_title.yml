@@ -13,7 +13,7 @@ jobs:
     - name: Run a one-line script
       env:
         PR_TITLE: ${{ github.event.pull_request.title }}
-      run: [[ $PR_TITLE =~ FRESHID[-_]\d* ]]
+      run: "[[ $PR_TITLE =~ FRESHID[-_]\\d* ]]"
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
