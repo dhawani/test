@@ -1,5 +1,7 @@
 name: PR Lint
-on: [pull_request]
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
 jobs:
   pr_lint:
     runs-on: ubuntu-latest
